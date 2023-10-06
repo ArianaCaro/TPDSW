@@ -1,0 +1,35 @@
+<app-progress-bar *ngIf= "loading"> </app-progress-bar>
+<div *ngIf="!loading" class="container">
+  <div class="title">
+    <title> PELICULAS </title>
+    <button type="button" class="btn btn-primary" routerLink="/add">AGREGAR</button>
+    <table *ngIf="listMovies.length > 0" class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">TITULO</th>
+          <th scope="col">DESCRIPCION</th>
+          <th scope="col">GENERO</th>
+          <th scope="col">CLASIFICACION</th>
+          <th scope="col">FORMATO</th>
+          <th scope="col">DURACION</th>
+          <th scope="col">IMAGEN</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of listMovies" class="table-primary">
+      <td>{{ item.title }}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.genre}}</td>
+      <td>{{item.clasification}}</td>
+      <td>{{item.format}}</td>
+      <td>{{item.duration}}</td>
+      <td>{{item.image}}</td>
+      <td>
+          <button routerLink="/edit" type="button" class="btn btn-outline-info btn-sm">EDITAR</button>
+          <button (click)="deleteMovie(item.id!)" type="button" class="btn btn-outline-danger btn-sm ms-2">ELIMINAR</button>
+      </td>
+      </tr>
+      </tbody>
+  </table>
+  <h5 *ngIf="listMovies.length == 0"> No hay peliculas cargadas </h5>
+</div>
