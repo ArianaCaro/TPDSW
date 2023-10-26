@@ -14,8 +14,7 @@ export class ListMoviesComponent implements OnInit {
   loading: boolean = false;
 
   constructor(private _movieService: MovieService, private toastr: ToastrService) {
-    
-  }
+    }
 
   ngOnInit(): void {
     this.getListMovies();

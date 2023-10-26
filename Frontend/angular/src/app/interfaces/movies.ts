@@ -1,10 +1,10 @@
 export interface Movie {
-    id: number,
+    id?: number,
     genre: string,
     clasification: string,
     format: string, //despues lo cambio por lo de Luca
     description: string,
-    duration: number,
+    durationMin: number,
     title: string,
-    image: string //url de la imagen
+    imageUri: string //url de la imagen
 }

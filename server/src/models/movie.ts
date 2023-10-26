@@ -1,6 +1,12 @@
 import db from '../db/connection';
 import { DataTypes} from 'sequelize';
 import sequelize from '../db/connection';
+import e from 'express';
+
+enum MovieFormat {
+    f2D='2D',
+    f3D='3D'//varchar(10) en bd 
+}
 const Movie = db.define('Movie', {
     id:{
         type: DataTypes.INTEGER
@@ -12,7 +18,7 @@ const Movie = db.define('Movie', {
         type: DataTypes.STRING
     },
     format:{
-        type: DataTypes.ENUM //ver porque en la basee de datos no me deja usar el tipo de dato enum
+        type: DataTypes.STRING 
     },
     description:{
         type: DataTypes.STRING
@@ -21,10 +27,11 @@ const Movie = db.define('Movie', {
         type: DataTypes.STRING
     },
     duration:{
-        type: DataTypes.STRING //ver porque en la basee de datos no me deja usar el tipo de dato time
+        type: DataTypes.STRING //min : si pido que el usuario me ingrese hora y min puedo convertirlo desde angular a min
     }
 }, 
 {
-    createdAt: false, updatedAt: false
+    createdAt: false,
+    updatedAt: false
 });
 export default Movie;

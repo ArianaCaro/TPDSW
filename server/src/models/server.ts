@@ -18,7 +18,7 @@ class Server{
 
    listen(){
         this.app.listen(this.port, () => {
-            console.log(`Aplicacion corriendo en el puerto ${this.port}`);
+            console.log(`Aplicacion corriendo en el puerto ${this.port}`)
         })
     }
 
@@ -45,6 +45,7 @@ class Server{
         }
         catch(error){
             console.log(error);
+            console.log('Error al conectarse a la base de datos')
         }
     }
 }

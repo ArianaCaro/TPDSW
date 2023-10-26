@@ -57,6 +57,8 @@ export const updateMovie = async (req: Request, res: Response) => {
     const { id } = req.params;
     const film = await Movie.findByPk(id);
     try {
+        const film = await Movie.findByPk(id);
+        
         if(film){
             await film.update(body);
     

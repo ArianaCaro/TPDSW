@@ -2,7 +2,7 @@
 <div *ngIf="!loading" class="container">
   <div class="title">
     <title> PELICULAS </title>
-    <button type="button" class="btn btn-primary" routerLink="/add">AGREGAR</button>
+    <button type="button" class="btn btn-light" routerLink="/add">AGREGAR</button>
     <table *ngIf="listMovies.length > 0" class="table table-hover">
       <thead>
         <tr>
@@ -17,17 +17,17 @@
       </thead>
       <tbody>
       <tr *ngFor="let item of listMovies" class="table-primary">
-      <td>{{ item.title }}</td>
-      <td>{{item.description}}</td>
-      <td>{{item.genre}}</td>
-      <td>{{item.clasification}}</td>
-      <td>{{item.format}}</td>
-      <td>{{item.duration}}</td>
-      <td>{{item.image}}</td>
-      <td>
-          <button routerLink="/edit" type="button" class="btn btn-outline-info btn-sm">EDITAR</button>
-          <button (click)="deleteMovie(item.id!)" type="button" class="btn btn-outline-danger btn-sm ms-2">ELIMINAR</button>
-      </td>
+        <td>{{ item.title }}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.genre}}</td>
+        <td>{{item.clasification}}</td>
+        <td>{{item.format}}</td>
+        <td>{{item.durationMin}}</td>
+        <td>{{item.imageUri}}</td>
+        <td>
+          <button routerLink="/edit" type="button" class="btn btn-dark btn-sm">EDITAR</button>
+          <button (click)="deleteMovie(item.id!)" type="button" class="btn btn-danger btn-sm ms-2">ELIMINAR</button>
+        </td>
       </tr>
       </tbody>
   </table>

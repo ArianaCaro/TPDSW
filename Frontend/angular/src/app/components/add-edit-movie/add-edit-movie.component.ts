@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Toast, ToastrService } from 'ngx-toastr';
@@ -15,6 +15,7 @@ export class AddEditMovieComponent {
   loading: boolean = false;
   id: number;
   operacion: string = 'Agregar ';
+  
   constructor(private fb:FormBuilder, private _movieService: MovieService,
     private router: Router, private toastr: ToastrService,
     private aRouter: ActivatedRoute){    
@@ -41,7 +42,7 @@ export class AddEditMovieComponent {
     this.form.setValue({
       title: data.title, genre:  data.genre, 
       clasification: data.clasification, format: data.format, 
-      description: data.description, duration: data.duration, image: data.image
+      description: data.description, duration: data.durationMin, image: data.imageUri
     })
    /* this.form.patchValue({
       title: data.title
@@ -57,9 +58,8 @@ export class AddEditMovieComponent {
       clasification: this.form.value.clasification,
       format: this.form.value.format,
       description: this.form.value.description,
-      duration: this.form.value.duration,
-      image: this.form.value.image,
-      id: 100 //como hago para no pasar un id porque es autoincremental en la bd
+      durationMin: this.form.value.duration,
+      imageUri: this.form.value.image//como hago para no pasar un id porque es autoincremental en la bd
     }
     this.loading = true;
     if(this.id !== 0){
